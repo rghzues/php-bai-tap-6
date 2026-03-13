@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// If already logged in, redirect to products
+
 if (isset($_SESSION['user'])) {
     header('Location: product.php');
     exit;
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    // Load users from simple file-based storage
+   
     $users_file = '../backend/users.json';
     $users = [];
     if (file_exists($users_file)) {
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'username' => $user['username'],
                 'email'    => $user['email'],
             ];
-            // Also set a cookie (30 days)
+            
             setcookie('remember_user', $user['username'], time() + 60 * 60 * 24 * 30, '/');
             header('Location: product.php');
             exit;
