@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Product 101",
+        "price": 300.5,
+        "category": "Hard Disk",
+        "image": ""
+    },
+    {
+        "id": 2,
+        "name": "wer",
+        "price": 3400,
+        "category": "Keyboard",
+        "image": ""
+    },
+    {
+        "id": 3,
+        "name": "Product 202",
+        "price": 100,
+        "category": "Laptops",
+        "image": ""
+    }
+]
