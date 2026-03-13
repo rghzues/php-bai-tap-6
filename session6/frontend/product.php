@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Auth check – must be logged in via session or cookie
+
 if (!isset($_SESSION['user'])) {
-    // Check remember cookie
+    
     if (isset($_COOKIE['remember_user'])) {
         $users_file = '../backend/users.json';
         if (file_exists($users_file)) {
