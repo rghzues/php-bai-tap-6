@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password  = $_POST['password'] ?? '';
     $confirm   = $_POST['confirm_password'] ?? '';
 
-    // Validation
+    
     if (!$username || !$email || !$password || !$confirm) {
         $error = 'All fields are required.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $users = json_decode(file_get_contents($users_file), true) ?? [];
         }
 
-        // Check duplicate username/email
+       
         foreach ($users as $u) {
             if ($u['username'] === $username) {
                 $error = 'Username already taken.';
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'password' => password_hash($password, PASSWORD_BCRYPT),
             ];
             file_put_contents($users_file, json_encode($users, JSON_PRETTY_PRINT));
-            // Redirect to login after success
+           
             header('Location: login.php?registered=1');
             exit;
         }
